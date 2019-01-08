@@ -128,7 +128,7 @@ class ZiplineTestCase(with_metaclass(DebugMROMeta, TestCase)):
                 "This probably means that you overrode init_class_fixtures"
                 " without calling super()."
             )
-        except:
+        except BaseException:  # Gotta catch 'em all
             cls.tearDownClass()
             raise
 
@@ -207,7 +207,7 @@ class ZiplineTestCase(with_metaclass(DebugMROMeta, TestCase)):
                 "This probably means that you overrode"
                 " init_instance_fixtures without calling super()."
             )
-        except:
+        except BaseException:  # Gotta catch 'em all
             self.tearDown()
             raise
         finally:
